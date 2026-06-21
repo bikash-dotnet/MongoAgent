@@ -1,0 +1,7 @@
+pymongo
+streamlit
+langchain
+# openai 
+# langchain-openai 
+python-dotenv 
+langchain-nvidia-ai-endpoints
