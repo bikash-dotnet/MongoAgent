@@ -1,0 +1,31 @@
+Example 1:
+Question: "Show me top 5 most expensive listings in New York"
+Query: [{"$match": {"address.market": "New York"}}, {"$sort": {"price": -1}}, {"$limit": 5}]
+
+Example 2:
+Question: "Find all superhosts with more than 100 reviews"
+Query: [{"$match": {"host.host_is_superhost": true, "number_of_reviews": {"$gt": 100}}}]
+
+Example 3:
+Question: "Find listings with WiFi in Los Angeles"
+Query: {"find": {"$and": [{"address.market": "Los Angeles"}, {"amenities": "WiFi"}]}}
+
+Example 4:
+Question: "What is the average price for entire home/apt in Paris?"
+Query: [{"$match": {"address.market": "Paris", "room_type": "Entire home/apt"}}, {"$group": {"_id": null, "avg_price": {"$avg": "$price"}}}]
+
+Example 5:
+Question: "Show hosts with the most listings"
+Query: [{"$group": {"_id": "$host.host_id", "host_name": {"$first": "$host.host_name"}, "listings_count": {"$sum": 1}}}, {"$sort": {"listings_count": -1}}, {"$limit": 10}]
+
+Example 6:
+Question: "Find properties with 5 bedrooms and 3+ bathrooms"
+Query: {"find": {"bedrooms": 5, "bathrooms": {"$gte": 3}}}
+
+Example 7:
+Question: "Show me all listings under $200 in London"
+Query: {"find": {"address.market": "London", "price": {"$lt": 200}}}
+
+Example 8:
+Question: "Find reviews from the last 30 days"
+Query: [{"$match": {"reviews.date": {"$gte": new Date(Date.now() - 30*24*60*60*1000)}}}]

@@ -5,3 +5,6 @@ langchain
 # langchain-openai 
 python-dotenv 
 langchain-nvidia-ai-endpoints
+pandas 
+openpyxl
+faker

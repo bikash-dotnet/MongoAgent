@@ -1,0 +1,34 @@
+MongoDB Airbnb Collection Schema:
+
+Collection: listingsAndReviews
+
+Fields:
+- _id (string): Unique identifier for the listing
+- name (string): Name of the listing
+- summary (string): Brief summary of the listing
+- description (string): Full description
+- property_type (string): Type of property (House, Apartment, etc.)
+- room_type (string): Entire home/apt, Private room, Shared room
+- bedrooms (int): Number of bedrooms
+- bathrooms (float): Number of bathrooms
+- beds (int): Number of beds
+- accommodates (int): Number of guests accommodated
+- price (float): Nightly price
+- cleaning_fee (float): Cleaning fee
+- security_deposit (float): Security deposit
+- minimum_nights (int): Minimum nights for booking
+- maximum_nights (int): Maximum nights for booking
+- number_of_reviews (int): Total reviews count
+- review_scores (object): Various review scores
+- amenities (array): List of amenities
+- address (object): Address details (street, suburb, market, country)
+- host (object): Host information (host_id, host_name, host_is_superhost, etc.)
+- availability (object): Availability for 30, 60, 90, 365 days
+- reviews (array): List of reviews with reviewer info and comments
+
+Common Query Patterns:
+- Filter by address.market, address.country
+- Sort by price, number_of_reviews
+- Group by room_type, property_type
+- Match on amenities array
+- Access nested host fields: host.host_is_superhost
